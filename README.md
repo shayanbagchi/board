@@ -55,7 +55,11 @@ Node.js installed globally on your machine
 
 ## 🛠 Installation and Setup Instructions
 
-1. Installation: `Visit`(https://developer.android.com/studio)
+1. Clone this repository.
+2. Install the dependencies by running npm install in the project directory.
+3. Create a Firebase project and configure the Firebase credentials in the .env file.
+4. Start the development server by running npm start.
+5. Open your browser and go to http://localhost:3000 to see the Dashboard App in action.
 
 ### Show your support
 
