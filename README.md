@@ -1,6 +1,6 @@
 # Board - A React-based Dashboard Application.
 > This is a dashboard application built with React, React Router, Firebase, TailwindCSS, and Chart.js.
-> Apk Link [_here_](https://shayanb-68fb5.web.app/). <!-- If you have the project hosted somewhere, include the link here. -->
+> Link [_here_](https://shayanb-68fb5.web.app/). <!-- If you have the project hosted somewhere, include the link here. -->
 
 <center>
 
