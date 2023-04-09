@@ -1,25 +1,64 @@
-import React from "react";
+import React, {useState} from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import Dropdown from "./dropdown.component";
 
-const data = {
+const data_1 = {
   labels: ["", "Week 1", "Week 2", "Week 3", "Week 4", ""],
   datasets: [
     {
-      data: [200, 400, 200, 300, 430, 380],
+      data: [250, 350, 300, 400, 450, 400],
       fill: false,
       borderColor: "#E9A0A0",
       tension: 0.4,
     },
     {
-      data: [100, 300, 400, 200, 130, 200],
+      data: [150, 250, 350, 450, 350, 250],
       fill: false,
       borderColor: "#9BDD7C",
       tension: 0.4,
     },
   ],
 };
+
+
+const data_2 = {
+  labels: ["", "Week 1", "Week 2", "Week 3", "Week 4", ""],
+  datasets: [
+    {
+      data: [100, 200, 150, 250, 300, 250],
+      fill: false,
+      borderColor: "#E9A0A0",
+      tension: 0.4,
+    },
+    {
+      data: [50, 150, 200, 100, 80, 100],
+      fill: false,
+      borderColor: "#9BDD7C",
+      tension: 0.4,
+    },
+  ],
+};
+
+
+const data_3 = {
+  labels: ["", "Week 1", "Week 2", "Week 3", "Week 4", ""],
+  datasets: [
+    {
+      data: [150, 250, 200, 300, 350, 300],
+      fill: false,
+      borderColor: "#E9A0A0",
+      tension: 0.4,
+    },
+    {
+      data: [70, 200, 250, 150, 100, 150],
+      fill: false,
+      borderColor: "#9BDD7C",
+      tension: 0.4,
+    },
+  ],
+};
+
 
 const options = {
     layout: {
@@ -67,6 +106,33 @@ const options = {
 };
 
 const Graph = () => {
+  const [data, setData] = useState({
+    labels: ["", "Week 1", "Week 2", "Week 3", "Week 4", ""],
+    datasets: [
+      {
+        data: [250, 350, 300, 400, 450, 400],
+        fill: false,
+        borderColor: "#E9A0A0",
+        tension: 0.4,
+      },
+      {
+        data: [150, 250, 350, 450, 350, 250],
+        fill: false,
+        borderColor: "#9BDD7C",
+        tension: 0.4,
+      },
+    ],
+  })
+
+  const handleOptionSelect = (option) => {
+    // Logic to handle selected option in parent component
+    console.log('Selected Option:', option);
+    if (option === 'Jan - Feb 2021') setData(data_1)
+    if (option === 'Mar - April 2021') setData(data_2)
+    if (option === 'May - June 2021') setData(data_3)
+
+  };
+
   return (
     <div className="h-[400px] bg-white rounded-2xl ml-8 mr-8 xl:mr-16 mt-10">
       <div className="relative pt-7 pl-10">
@@ -76,6 +142,7 @@ const Graph = () => {
         <Dropdown
           options={["May - June 2021", "Jan - Feb 2021", "Mar - April 2021"]}
           className="w-[128px] mt-1"
+          onOptionSelect={handleOptionSelect} 
         />
         <div className="absolute right-2 top-8 min-[396px]:right-4 sm:right-14 min-[396px]:top-10 flex justify-center items-center">
           <div className="flex justify-center items-center mr-3">

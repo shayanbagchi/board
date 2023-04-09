@@ -1,10 +1,46 @@
-import React from "react";
+import React, {useState} from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import Dropdown from "./dropdown.component";
 
+const data_1 = {
+  datasets: [
+    {
+      data: [55, 31, 14],
+      backgroundColor: ["#98D89E", "#F6DC7D", "#EE8484"],
+      hoverBackgroundColor: ["#98D89E", "#F6DC7D", "#EE8484"],
+    },
+  ],
+};
+
+const data_2 = {
+  datasets: [
+    {
+      data: [60, 25, 15],
+      backgroundColor: ["#98D89E", "#F6DC7D", "#EE8484"],
+      hoverBackgroundColor: ["#98D89E", "#F6DC7D", "#EE8484"],
+    },
+  ],
+};
+
+const data_3 = {
+  datasets: [
+    {
+      data: [30, 40, 30],
+      backgroundColor: ["#98D89E", "#F6DC7D", "#EE8484"],
+      hoverBackgroundColor: ["#98D89E", "#F6DC7D", "#EE8484"],
+    },
+  ],
+};
+
+const options = {
+  responsive: true,
+  width: 146,
+  height: 146,
+};
+
 function PieChart() {
-  const data = {
+  const [data, setData] = useState({
     datasets: [
       {
         data: [55, 31, 14],
@@ -12,12 +48,14 @@ function PieChart() {
         hoverBackgroundColor: ["#98D89E", "#F6DC7D", "#EE8484"],
       },
     ],
-  };
+  })
 
-  const options = {
-    responsive: true,
-    width: 146,
-    height: 146,
+  const handleOptionSelect = (option) => {
+    // Logic to handle selected option in parent component
+    if (option === 'Jan - Feb 2021') setData(data_1)
+    if (option === 'Mar - April 2021') setData(data_2)
+    if (option === 'May - June 2021') setData(data_3)
+
   };
 
   return (
@@ -27,6 +65,7 @@ function PieChart() {
         <Dropdown
           options={["May - June 2021", "Jan - Feb 2021", "Mar - April 2021"]}
           className="w-[128px] mt-1"
+          onOptionSelect={handleOptionSelect}
         />
       </div>
       <div className="flex">
@@ -41,7 +80,7 @@ function PieChart() {
             <span className="text-xs sm:text-sm font-bold text-black">Basic Tees</span>
           </div>
           <div className="pl-5">
-            <span className="font-lato text-[12px] font-normal text-[#858585]">65%</span>
+            <span className="font-lato text-[12px] font-normal text-[#858585]">{data.datasets[0].data[0]}%</span>
           </div>
 
           <div className="flex items-center">
@@ -53,7 +92,7 @@ function PieChart() {
             </span>
           </div>
           <div className="pl-5">
-            <span className="font-lato text-[12px] font-normal text-[#858585]">65%</span>
+            <span className="font-lato text-[12px] font-normal text-[#858585]">{data.datasets[0].data[1]}%</span>
           </div>
           
           <div className="flex items-center">
@@ -63,7 +102,7 @@ function PieChart() {
             <span className="text-xs sm:text-sm font-bold text-black">Super Hoodies</span>
           </div>
           <div className="pl-5">
-            <span className="font-lato text-[12px] font-normal text-[#858585]">65%</span>
+            <span className="font-lato text-[12px] font-normal text-[#858585]">{data.datasets[0].data[2]}%</span>
           </div>
 
         </div>

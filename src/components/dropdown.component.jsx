@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ReactComponent as ChevronDownIcon } from "../assets/chevron_down_icon.svg";
 
 
-const Dropdown = ({ options, className }) => {
+const Dropdown = ({ options, className, onOptionSelect }) => {
   const label = options[0];
   const [selectedOption, setSelectedOption] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -14,6 +14,10 @@ const Dropdown = ({ options, className }) => {
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     setIsDropdownOpen(false);
+
+    if (typeof onOptionSelect === 'function') {
+      onOptionSelect(option);
+    }
   };
 
   return (

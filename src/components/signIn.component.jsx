@@ -14,7 +14,9 @@ function SignIn() {
         </p>
       </div>
       <div className="flex my-6">
-        <Button icon={<Google />} text={"google"} margin={25} />
+        <div className="inline pr-2 md:pr-[25px]">
+          <Button icon={<Google />} text={"google"} />
+        </div>
         <Button icon={<Apple />} text={"apple"} />
       </div>
       <div className="w-full md:w-[380px] h-80">

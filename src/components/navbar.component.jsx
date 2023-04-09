@@ -44,10 +44,10 @@ function NavBar() {
             <div className="block sm:hidden">
               <SearchIcon />
             </div>
-            <div className="flex justify-center items-center h-10 rounded-full ml-7">
+            <div className="flex justify-center items-center h-10 rounded-full ml-7 cursor-pointer">
               <NotificationIcon />
             </div>
-            <div className="profile-icon w-10 h-10 ml-7 rounded-full bg-gray-200 flex items-center justify-center text-gray-400 font-bold text-sm">
+            <div className="profile-icon w-10 h-10 ml-7 rounded-full bg-gray-200 flex items-center justify-center text-gray-400 font-bold text-sm cursor-pointer">
               SB
             </div>
           </div>
